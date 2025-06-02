@@ -1,306 +1,55 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emanuele Costa - Portfolio Tecnico Informatico</title>
-  <style>
-    /* Font e reset base */
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-      color: #cfcfff;
-      line-height: 1.5;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background-color: #1a1a2e;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      border-bottom: 3px solid #ff00ff;
-      box-shadow: 0 0 15px #ff00ffaa;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      color: #ff00ff;
-      font-weight: 700;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      text-shadow: 0 0 6px #ff00ffaa;
-    }
-    header p {
-      margin: 0.3rem 0 0;
-      color: #cc66ff;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      text-shadow: 0 0 4px #cc66ff88;
-    }
-
-    nav {
-      background-color: #220022dd;
-      display: flex;
-      justify-content: center;
-      padding: 0.8rem 0;
-      gap: 2.5rem;
-      position: sticky;
-      top: 75px; /* header height + margin */
-      z-index: 999;
-      border-bottom: 2px solid #ff00ff;
-      box-shadow: 0 0 10px #ff00ffaa;
-      backdrop-filter: blur(8px);
-    }
-    nav a {
-      color: #ff00ff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 1.5px;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 3px;
-    }
-    nav a:hover,
-    nav a:focus {
-      color: #00ffff;
-      border-bottom: 2px solid #00ffff;
-      outline: none;
-      text-shadow: 0 0 8px #00ffffcc;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 4rem auto 3rem;
-      padding: 0 1.5rem;
-      background: rgba(30, 10, 40, 0.3);
-      border-radius: 10px;
-      box-shadow: 0 0 25px #ff00ff55;
-      backdrop-filter: blur(6px);
-    }
-    h2 {
-      color: #ff00ff;
-      border-bottom: 2px solid #ff00ff;
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 0 0 5px #ff00ffaa;
-    }
-    p, ul {
-      color: #cfcfff;
-      font-size: 1rem;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 1rem;
-    }
-    ul li {
-      padding: 0.25rem 0;
-      position: relative;
-      padding-left: 1.2rem;
-    }
-    ul li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #00ffff;
-      text-shadow: 0 0 5px #00ffffaa;
-    }
-
-    /* Nested lists */
-    ul ul li::before {
-      content: '▪';
-      color: #cc66ff;
-      font-size: 0.8rem;
-      left: 0.6rem;
-    }
-
-    /* Modulo contatti */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin-top: 1rem;
-    }
-    label {
-      font-weight: 700;
-      color: #ff00ff;
-      text-shadow: 0 0 4px #ff00ffbb;
-    }
-    input, textarea {
-      background: #220022cc;
-      border: 1.5px solid #ff00ff;
-      border-radius: 6px;
-      color: #cfcfff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1rem;
-      padding: 0.6rem 0.8rem;
-      transition: border-color 0.3s;
-      resize: vertical;
-      min-height: 40px;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #00ffff;
-      box-shadow: 0 0 10px #00ffffaa;
-      background: #220022ee;
-    }
-    textarea {
-      min-height: 100px;
-    }
-    button {
-      background: #ff00ff;
-      border: none;
-      color: #0f0f1a;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      box-shadow: 0 0 10px #ff00ffaa;
-    }
-    button:hover {
-      background: #00ffff;
-      color: #1a1a2e;
-      box-shadow: 0 0 15px #00ffffcc;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      background-color: #1a1a2e;
-      color: #555;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      border-top: 1px solid #330033;
-      user-select: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-        position: sticky;
-        top: 120px;
-      }
-      section {
-        margin: 3rem 1rem 2rem;
-        padding: 1rem;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      button {
-        font-size: 1rem;
-        padding: 0.6rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emanuele Costa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="sticky">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <h1>Emanuele Costa</h1>
-    <p>Tecnico Informatico</p>
-  </header>
+    <section id="home" class="hero">
+        <h1>EMANUELE COSTA</h1>
+    </section>
 
-  <nav>
-    <a href="#home" tabindex="1">Home</a>
-    <a href="#esperienza" tabindex="2">Esperienza</a>
-    <a href="#competenze" tabindex="3">Competenze</a>
-    <a href="#certificazioni" tabindex="4">Certificazioni</a>
-    <a href="#contatti" tabindex="5">Contatti</a>
-  </nav>
+    <section id="contatti" class="content">
+        <h2>Presentazione</h2>
+        <p>Tecnico informatico con esperienza nella gestione e manutenzione dell’infrastruttura IT, maturata principalmente nei settori della Sanità e della Pubblica Amministrazione... [continua con tutto il testo che hai scritto]</p>
 
-  <section id="home">
-    <h2>Chi sono</h2>
-    <p>
-      Tecnico informatico con esperienza nella gestione e manutenzione dell’infrastruttura IT, maturata principalmente nei settori della Sanità e della Pubblica Amministrazione. 
-      Mi occupo di assistenza tecnica agli utenti, installazione e configurazione di hardware e software, gestione delle reti locali e monitoraggio dei sistemi. Affronto il lavoro con serietà, disponibilità e attenzione, cercando soluzioni pratiche ed efficaci, consapevole dell’importanza di un supporto tecnico affidabile, soprattutto in ambienti dove la continuità dei servizi è essenziale.
-    </p>
-    <p>
-      Sono una persona determinata, responsabile e attenta, con buone capacità organizzative e relazionali. Abituato a lavorare in gruppo e a gestire in autonomia le attività quotidiane, do grande importanza alla pianificazione e al rispetto degli obiettivi. Riesco ad affrontare situazioni di stress grazie all’esperienza nel contatto diretto con utenti e clienti, nella gestione delle problematiche e nella collaborazione in contesti strutturati.
-    </p>
-    <p>
-      Sono sempre alla ricerca di nuove sfide e opportunità di crescita professionale, interessato a sviluppare le mie competenze tecniche e a contribuire al successo delle realtà per cui lavoro.
-    </p>
-  </section>
-
-  <section id="esperienza">
-    <h2>Esperienza</h2>
-    <ul>
-      <li><strong>Supporto Tecnico IT</strong> presso Azienda Sanitaria, Catanzaro (2022-2025)
+        <h2>Gestione dell’infrastruttura IT e dei sistemi</h2>
         <ul>
-          <li>Gestione postazioni di lavoro, installazione software e risoluzione guasti</li>
-          <li>Assistenza agli utenti in ambienti critici</li>
-          <li>Manutenzione e aggiornamento reti locali</li>
+            <li>Configurazione, manutenzione e monitoraggio server Linux/Windows (fisici e virtuali)</li>
+            <li>Installazione, aggiornamento e riparazione hardware/software su PC Windows, Linux, macOS</li>
+            <li>Utilizzo Zabbix, backup, disaster recovery</li>
+            <li>Sostituzione dischi server, risoluzione problemi hardware</li>
         </ul>
-      </li>
-      <li><strong>Consulente IT Freelance</strong> (2020-2022)
+
+        <h2>Reti e Sicurezza</h2>
         <ul>
-          <li>Implementazione di infrastrutture IT per piccole aziende</li>
-          <li>Formazione e supporto tecnico personalizzato</li>
-          <li>Configurazione e sicurezza reti</li>
+            <li>Gestione reti LAN/WAN, dispositivi Layer 2/3 (Cisco, Allied Telesys, HP, Netgear)</li>
+            <li>Configurazione VPN, backup configurazioni apparati</li>
+            <li>Conoscenza TCP/IP, DNS, DHCP, SNMP, SSL/TLS</li>
         </ul>
-      </li>
-    </ul>
-  </section>
 
-  <section id="competenze">
-    <h2>Competenze Tecniche</h2>
-    <ul>
-      <li>Sistemi operativi: Windows, Linux (Mint, Ubuntu)</li>
-      <li>Networking: Cisco CCNA, configurazione router e switch</li>
-      <li>Hardware: assemblaggio, manutenzione, troubleshooting</li>
-      <li>Software: Office 365, software gestionali, strumenti di diagnostica</li>
-      <li>Gestione backup e sicurezza dati</li>
-    </ul>
-  </section>
+        <h2>Supporto Tecnico e Formazione</h2>
+        <ul>
+            <li>Supporto quotidiano agli utenti e formazione IT</li>
+            <li>Gestione posta elettronica e browser aziendali</li>
+            <li>Gestione base di domini e utenti AD</li>
+            <li>Supporto a centralini telefonici VoIP</li>
+        </ul>
 
-  <section id="certificazioni">
-    <h2>Certificazioni</h2>
-    <ul>
-      <li>Cisco Certified Network Associate (CCNA) - 2025</li>
-      <li>Corso di formazione sulla sicurezza informatica - 2024</li>
-      <li>Certificato di gestione reti locali - 2023</li>
-    </ul>
-  </section>
-
-  <section id="contatti">
-    <h2>Contatti</h2>
-    <form id="contact-form" action="mailto:tuoindirizzo@email.com" method="POST" enctype="text/plain" novalidate>
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" placeholder="Il tuo nome" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="La tua email" required />
-
-      <label for="message">Messaggio:</label>
-      <textarea id="message" name="message" placeholder="Scrivi qui il tuo messaggio" required></textarea>
-
-      <button type="submit">Invia</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Emanuele Costa - Tutti i diritti riservati
-  </footer>
-
+        <h2>Contatti</h2>
+        <p>Email: <a href="mailto:eman.costa00@gmail.com">eman.costa00@gmail.com</a></p>
+        <p>Telefono: <a href="tel:+393398571342">(+39) 339 8571342</a></p>
+    </section>
 </body>
 </html>
